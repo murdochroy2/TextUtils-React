@@ -1,28 +1,33 @@
 import React from "react";
 import { useState } from "react";
 
-export default function About() {
+export default function About(props) {
   let darkStyle = {
     backgroundColor: "black",
     color: "white",
     border: "1px solid white"
   };
-  const [myStyle, setMyStyle] = useState({});
-  const [btnTxt, setBtnTxt] = useState('Enable Dark Mode')
-  const toggleStyle = () => {
-    if (myStyle.backgroundColor === 'black') {
-        setMyStyle({
-            backgroundColor: 'white',
-            color:'black'
-        })
-        setBtnTxt('Enable Dark Mode')
-    } else {
-        setMyStyle(darkStyle)
-        setBtnTxt('Disable Dark Mode')
-    }
+  // Create myStyle object from props values instead
+  // const [myStyle, setMyStyle] = useState({});
+  let myStyle = {
+   color : props.mode === "dark" ? "white":"black",
+    backgroundColor: props.mode === "dark" ? "rgb(36 74 104)":"white"
   }
+  const [btnTxt, setBtnTxt] = useState('Enable Dark Mode')
+  // const toggleStyle = () => {
+  //   if (myStyle.backgroundColor === 'black') {
+  //       setMyStyle({
+  //           backgroundColor: 'white',
+  //           color:'black'
+  //       })
+  //       setBtnTxt('Enable Dark Mode')
+  //   } else {
+  //       setMyStyle(darkStyle)
+  //       setBtnTxt('Disable Dark Mode')
+  //   }
+  // }
   return (
-    <div className="container" style={myStyle}>
+    <div className="container">
       <h1>About Us</h1>
       <div className="accordion" id="accordionExample">
         <div className="accordion-item">
@@ -36,7 +41,7 @@ export default function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Accordion Item #1
+              Analyze your Text
             </button>
           </h2>
           <div
@@ -46,14 +51,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <strong>Analyze your text</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quidem cupiditate laudantium, et neque eos pariatur voluptatibus excepturi nobis nisi quasi ipsum dolore non ducimus delectus expedita iure aliquam. Tenetur mollitia minima laboriosam. Corrupti!
             </div>
           </div>
         </div>
@@ -68,7 +66,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Accordion Item #2
+              Free to use
             </button>
           </h2>
           <div
@@ -78,14 +76,7 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              <strong>Free to use</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, sed. Quam dolore hic consectetur animi tempore atque explicabo assumenda blanditiis libero, minus error accusantium sed quia, necessitatibus cum, fugit ipsam impedit illo consequuntur totam praesentium. Quas sequi obcaecati nesciunt nulla!
             </div>
           </div>
         </div>
@@ -100,7 +91,7 @@ export default function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Accordion Item #3
+              Browser compatible
             </button>
           </h2>
           <div
@@ -110,21 +101,16 @@ export default function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body" style={myStyle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance, as well as the showing and hiding via CSS
-              transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
+              <strong>Browser compatible</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi natus laudantium repudiandae cumque eum dolore fugit. Reprehenderit deserunt enim commodi amet iste ut harum a, quisquam perferendis vitae. Voluptates, suscipit?<code>.accordion-body</code>,
               though the transition does limit overflow.
             </div>
           </div>
         </div>
       </div>
-      <div className="container my-3">
+      {/* Enable Dark Mode button */}
+      {/* <div className="container my-3">
         <button className="btn btn-primary" onClick = {toggleStyle}>{btnTxt}</button>
-      </div>
+      </div> */}
     </div>
   );
 }
