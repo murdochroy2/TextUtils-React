@@ -86,21 +86,23 @@ export default function TextForm(props) {
           }}
         ></textarea>
       </div>
-      <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>
         Convert to Uppercase
       </button>
-      <button className="btn btn-primary mx-1" onClick={handleLoClick}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>
         Convert to Lowercase
       </button>
-      <button className="btn btn-primary mx-1" onClick={handleInvClick}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleInvClick}>
         Convert to iNvErSe cAsE
       </button>
-      <button className="btn btn-primary mx-1" onClick={handleCopy}>
+      <button className="btn btn-primary mx-1 my-1" onClick={handleCopy}>
         Copy to clipboard
       </button>
       <div className="container my-3">
         <h2>Your text summary</h2>
-        {(text.search(/\S/) >= 0 && text.replace(/ +/g, " ").trim().split(" ").length) || 0} words
+        {/* {(text.search(/\S/) >= 0 && text.replace(/ +/g, " ").trim().split(" ").length) || 0} words */}
+        {/* Simpler logic below */}
+        {text.split(/\s/).filter(element => element !== '').length || 0} words
         and {text.length} characters<br></br>
         {Math.max((0.008 * text.length).toPrecision(1), 1)} minute read
       </div>
