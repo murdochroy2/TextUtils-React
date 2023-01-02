@@ -6,23 +6,25 @@ function Alert(props) {
     return lower.charAt(0).toUpperCase() + lower.slice(1);
   };
   return (
-    props.message && (
-      <div>
-        <div
-          className={`alert alert-${props.message.type} alert-dismissible fade show`}
-          role="alert"
-        >
-          <strong>{capitalize(props.message.type)}: </strong>
-          {props.message.msg}
-          {/* <button
+    <div style={{ height: "50px" }}>
+      {props.message && (
+        <div>
+          <div
+            className={`alert alert-${props.message.type} alert-dismissible fade show`}
+            role="alert"
+          >
+            <strong>{capitalize(props.message.type)}: </strong>
+            {props.message.msg}
+            {/* <button
             type="button"
             className="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
           ></button> */}
+          </div>
         </div>
-      </div>
-    )
+      )}
+    </div>
   );
 }
 
