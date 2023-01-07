@@ -19,12 +19,12 @@ function App() {
       document.body.style.backgroundColor = "#042734";
       document.body.style.color = "white";
       showAlertMessage("Dark Mode has been enabled", "success");
-      document.title = "TextUtils - Dark Mode";
+      // document.title = "TextUtils - Dark Mode";
       setInterval(() => {
-        document.title = "TextUtils Amazing!";
+        // document.title = "TextUtils Amazing!";
       }, 2000);
       setInterval(() => {
-        document.title = "Install TextUtils Now!";
+        // document.title = "Install TextUtils Now!";
       }, 1500);
     } else {
       setMode("light");
@@ -76,7 +76,7 @@ function App() {
               path="/"
               element={
                 <TextForm
-                  heading="Enter text to analyze"
+                  heading="Try TextUtils - Character Counter, lowercase to Uppercase, Uppercase to lowercase and much more..."
                   mode={mode}
                   showAlert={showAlertMessage}
                 />
