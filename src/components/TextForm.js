@@ -38,7 +38,8 @@ export default function TextForm(props) {
   };
   const handleCopy = () => {
     let userText = document.getElementById("myBox");
-    userText.select();
+    // Not required if we use navigator Api
+    // userText.select();
     navigator.clipboard.writeText(userText.value);
   };
   const [text, setText] = useState("");
